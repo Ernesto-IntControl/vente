@@ -71,6 +71,11 @@
       text-align: center;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       flex: 1 1 calc(30% - 40px);
+      transition: transform 0.2s;
+    }
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
     .product img {
       max-width: 100%;
@@ -78,9 +83,44 @@
       border-radius: 5px;
       margin-bottom: 15px;
     }
+    .form-container {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 10px;
+      display: none;
+      text-align: left;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    input[type="text"], select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      width: 100%;
+    }
   </style>
+  <script>
+    function toggleForm(id) {
+      const form = document.getElementById(id);
+      if (form.style.display === 'block') {
+        form.style.display = 'none';
+      } else {
+        form.style.display = 'block';
+      }
+    }
+
+    function showThankYou(event) {
+      event.preventDefault();
+      alert('Merci pour votre commande ! (Démo)');
+    }
+  </script>
 </head>
 <body>
+
   <header>
     <h1>DJAHAJ VENTE EN LIGNE</h1>
   </header>
@@ -102,40 +142,145 @@
   </div>
 
   <section id="montres" class="container">
+    <!-- Montre 1 -->
     <div class="product">
       <img src="images/hrm.jpg" alt="GENEVA">
       <h2>GENEVA</h2>
       <p>FABRIQUÉ PAR LA MAISON GENEVA EN USA.</p>
       <p>Prix : 50 $</p>
+      <button class="button" onclick="toggleForm('form1')">Acheter</button>
+      <div id="form1" class="form-container">
+        <form onsubmit="showThankYou(event)">
+          <label>Nom :</label><input type="text" required>
+          <label>Postnom :</label><input type="text" required>
+          <label>Numéro :</label><input type="text" required>
+          <label>Pays :</label><input type="text" required>
+          <label>Ville :</label><input type="text" required>
+          <label>Province :</label><input type="text" required>
+          <label>Modele de paiement :</label>
+          <select required>
+            <option value="Carte de crédit">Carte de crédit</option>
+            <option value="PayPal">PayPal</option>
+            <option value="Virement bancaire">Virement bancaire</option>
+          </select>
+          <button type="submit" class="button">Confirmer l'Achat</button>
+        </form>
+      </div>
     </div>
+
+    <!-- Montre 2 -->
     <div class="product">
       <img src="images/hrm1.jpg" alt="HUTBLOT">
       <h2>HUTBLOT</h2>
       <p>FABRIQUÉ PAR MAISON HUTBLOT EN GERMANIE.</p>
       <p>Prix : 60 $</p>
+      <button class="button" onclick="toggleForm('form2')">Acheter</button>
+      <div id="form2" class="form-container">
+        <form onsubmit="showThankYou(event)">
+          <!-- Même champs -->
+          <label>Nom :</label><input type="text" required>
+          <label>Postnom :</label><input type="text" required>
+          <label>Numéro :</label><input type="text" required>
+          <label>Pays :</label><input type="text" required>
+          <label>Ville :</label><input type="text" required>
+          <label>Province :</label><input type="text" required>
+          <label>Modele de paiement :</label>
+          <select required>
+            <option value="Carte de crédit">Carte de crédit</option>
+            <option value="PayPal">PayPal</option>
+            <option value="Virement bancaire">Virement bancaire</option>
+          </select>
+          <button type="submit" class="button">Confirmer l'Achat</button>
+        </form>
+      </div>
     </div>
+
+    <!-- Montre 3 -->
     <div class="product">
       <img src="images/hrm2.jpg" alt="BINBOND">
       <h2>BINBOND</h2>
       <p>FABRIQUÉ PAR LA MAISON BINBOND EN CHINE.</p>
       <p>Prix : 50 $</p>
+      <button class="button" onclick="toggleForm('form3')">Acheter</button>
+      <div id="form3" class="form-container">
+        <form onsubmit="showThankYou(event)">
+          <!-- Même champs -->
+          <label>Nom :</label><input type="text" required>
+          <label>Postnom :</label><input type="text" required>
+          <label>Numéro :</label><input type="text" required>
+          <label>Pays :</label><input type="text" required>
+          <label>Ville :</label><input type="text" required>
+          <label>Province :</label><input type="text" required>
+          <label>Modele de paiement :</label>
+          <select required>
+            <option value="Carte de crédit">Carte de crédit</option>
+            <option value="PayPal">PayPal</option>
+            <option value="Virement bancaire">Virement bancaire</option>
+          </select>
+          <button type="submit" class="button">Confirmer l'Achat</button>
+        </form>
+      </div>
     </div>
+
+    <!-- Montre 4 -->
     <div class="product">
       <img src="images/hrm5.jpg" alt="LV ROLEX">
       <h2>LV ROLEX</h2>
       <p>FABRIQUÉ PAR MAISON LOUIS VUITTON EN BRAZIL.</p>
       <p>Prix : 40 $</p>
+      <button class="button" onclick="toggleForm('form4')">Acheter</button>
+      <div id="form4" class="form-container">
+        <form onsubmit="showThankYou(event)">
+          <!-- Même champs -->
+          <label>Nom :</label><input type="text" required>
+          <label>Postnom :</label><input type="text" required>
+          <label>Numéro :</label><input type="text" required>
+          <label>Pays :</label><input type="text" required>
+          <label>Ville :</label><input type="text" required>
+          <label>Province :</label><input type="text" required>
+          <label>Modele de paiement :</label>
+          <select required>
+            <option value="Carte de crédit">Carte de crédit</option>
+            <option value="PayPal">PayPal</option>
+            <option value="Virement bancaire">Virement bancaire</option>
+          </select>
+          <button type="submit" class="button">Confirmer l'Achat</button>
+        </form>
+      </div>
     </div>
+
+    <!-- Montre 5 -->
     <div class="product">
       <img src="images/hrm4.jpg" alt="HRM">
       <h2>HRM</h2>
       <p>FABRIQUÉ PAR LA MAISON HERMAN AU CONGO.</p>
       <p>Prix : 90 $</p>
+      <button class="button" onclick="toggleForm('form5')">Acheter</button>
+      <div id="form5" class="form-container">
+        <form onsubmit="showThankYou(event)">
+          <!-- Même champs -->
+          <label>Nom :</label><input type="text" required>
+          <label>Postnom :</label><input type="text" required>
+          <label>Numéro :</label><input type="text" required>
+          <label>Pays :</label><input type="text" required>
+          <label>Ville :</label><input type="text" required>
+          <label>Province :</label><input type="text" required>
+          <label>Modele de paiement :</label>
+          <select required>
+            <option value="Carte de crédit">Carte de crédit</option>
+            <option value="PayPal">PayPal</option>
+            <option value="Virement bancaire">Virement bancaire</option>
+          </select>
+          <button type="submit" class="button">Confirmer l'Achat</button>
+        </form>
+      </div>
     </div>
+
   </section>
 
   <footer>
     <p>&copy; 2025 Djahaj. Tous droits réservés.</p>
   </footer>
-</body>
+
+</body> 
 </html>
